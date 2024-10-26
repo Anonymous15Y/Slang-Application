@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Submit Slang</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Submit Your Own Slang</h1>
+        <form action="{{ url_for('submit_slang') }}" method="post">
+            <label for="word">Word:</label>
+            <input type="text" id="word" name="word" required>
+            
+            <label for="meaning">Meaning:</label>
+            <input type="text" id="meaning" name="meaning" required>
+            
+            <button class="button" type="submit">Submit</button>
+        </form>
+    </div>
+</body>
+</html>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Popular Slang Board</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='styles.css') }}">
+</head>
+<body>
+    <div class="container">
+        <h1>Popular Slang Board</h1>
+        <a class="button" href="{{ url_for('submit_form') }}">Submit New Slang</a>
+        <ul>
+            {% for slang in slangs %}
+                <li>
+                    <strong>{{ slang.word }}</strong>: {{ slang.meaning }}
+                    <form action="{{ url_for('vote_slang', slang_id=slang.id) }}" method="post" style="display:inline;">
+                        <button class="vote-button" type="submit">👍 Understood ({{ slang.votes }})</button>
+                    </form>
+                </li>
+            {% endfor %}
+        </ul>
+    </div>
+</body>
+</html>
